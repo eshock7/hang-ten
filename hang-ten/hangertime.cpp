@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <ctype.h>
+#include <stdlib.h>  
+#include <time.h> 
 using namespace std;
 
 string makeblanks(string phrase);
@@ -14,7 +16,15 @@ void testguess(string phrase, string& blanks, string expected, char guess, bool 
 	if (expected != blanks)
 		cout << "Output error\n";
 }
+/*void wordlist(){
+	word[1] = "Hello World";
+	word[2] = "Baby your a firework";
+	word[3] = "Take on me";
+	word[4] = "Never gonna give you up";
+	word[5] = "Drop the bass"
 
+}
+*/
 void test(){
 	string input = "Hello World!";
 	string expected = "_____ _____!";
