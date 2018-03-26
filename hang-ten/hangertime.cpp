@@ -34,7 +34,6 @@ void test(){
 	if (expected != output)
 		cout << "Output error\n";
 	cout << output << endl;
-
 	testguess(input, output, "H____ _____!", 'H', true);
 	cout << output << endl;
 
@@ -47,7 +46,17 @@ void test(){
 
 
 int main(){
-	test();
+	//test();
+	string phrase = "Hello World!";
+	string blanks = makeblanks(phrase);
+	while (phrase!= blanks)
+	{
+		cout << "guess a letter\n";
+		string guess;
+		cin >> guess;
+		guessletter(phrase, blanks, guess.at(0));
+		cout << blanks << endl;
+	}
 	system("pause");
 	return 0;
 }
