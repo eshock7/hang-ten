@@ -53,13 +53,29 @@ int main(){
 	{
 		cout << "guess a letter\n";
 		string guess;
-		cin >> guess;
+		getline(cin,guess);
 		bool correct = guessletter(phrase, blanks, guess.at(0));
 		if (correct != true)
 		{wrong++; 
 		cout << "You have " << 6 - wrong << " guesses left.\n";
 		}
+		if (wrong = 1);
+		cout << "   _________\n";
+		cout << "   |       |\n";
+		cout << "   |        \n";
+		cout << "   |        \n";
+		cout << "   |        \n";
+		cout << "   |        \n";
+		cout << "___|________\n";
 		cout << blanks << endl;
+		if (wrong=2)
+		cout << "   _________\n";
+		cout << "   |       |\n";
+		cout << "   |      ( ) \n";
+		cout << "   |        \n";
+		cout << "   |        \n";
+		cout << "   |        \n";
+		cout << "___|________\n";
 
 	}
 	if (phrase == blanks)
@@ -96,3 +112,62 @@ bool guessletter(string phrase, string& blanks, char guess){
 		cout << "invalid answer\n";
 	return correct;
 }
+
+/*void image1(){
+
+	cout << "  _________";
+	cout << "  |       |";
+	cout << "  |        ";
+	cout << "  |        ";
+	cout << "  |        ";
+	cout << "  |        ";
+	cout << "_______|____________";
+		
+}
+*/
+/* void image2()
+       _________
+       |       |
+       |      ( ) 
+       |      
+	   |       
+       |      
+_______|____________
+*/
+/*void image3()
+	   _________
+       |       |
+       |      ( )
+       |       |
+       |       
+       |      
+_______|____________
+*/
+
+/*void image4()
+       _________
+       |       |
+       |      ( )
+	   |      \|/
+	   |       
+       |      
+_______|____________
+*/
+/* void image5()
+       _________
+       |       |
+       |      ( )
+       |      \|/
+       |       |
+       |      
+_______|____________
+*/
+/* void image6()
+       _________
+       |       |
+       |      ( )
+       |      \|/
+       |       |
+       |      / \
+_______|____________
+*/
