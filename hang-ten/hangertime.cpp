@@ -44,18 +44,29 @@ void test(){
 	cout << output << endl;
 }
 
-
 int main(){
 	//test();
 	string phrase = "Hello World!";
 	string blanks = makeblanks(phrase);
-	while (phrase!= blanks)
+	int wrong = 0;
+	while (phrase != blanks && wrong < 6)
 	{
 		cout << "guess a letter\n";
 		string guess;
 		cin >> guess;
-		guessletter(phrase, blanks, guess.at(0));
+		bool correct = guessletter(phrase, blanks, guess.at(0));
+		if (correct != true)
+		{wrong++; 
+		cout << "You have " << 6 - wrong << " guesses left.\n";
+		}
 		cout << blanks << endl;
+
+	}
+	if (phrase == blanks)
+		cout << "You Win!!!\n";
+	else
+	{
+		cout << "You Lose.\n";
 	}
 	system("pause");
 	return 0;
@@ -81,5 +92,7 @@ bool guessletter(string phrase, string& blanks, char guess){
 			correct = true;
 		}
 	}
+	if (correct != true)
+		cout << "invalid answer\n";
 	return correct;
 }
