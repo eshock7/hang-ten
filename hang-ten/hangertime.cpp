@@ -5,8 +5,11 @@
 #include <time.h> 
 using namespace std;
 
+void play();
+string pickphrase();
 string makeblanks(string phrase);
 bool guessletter(string phrase, string& blanks, char guess);
+bool guessphrase(string phrase, string& blanks, string guess);
 
 void testguess(string phrase, string& blanks, string expected, char guess, bool should_be_correct){
 	bool correct = guessletter(phrase, blanks, guess);
@@ -16,15 +19,7 @@ void testguess(string phrase, string& blanks, string expected, char guess, bool 
 	if (expected != blanks)
 		cout << "Output error\n";
 }
-/*void wordlist(){
-	word[1] = "Hello World";
-	word[2] = "Baby your a firework";
-	word[3] = "Take on me";
-	word[4] = "Never gonna give you up";
-	word[5] = "Drop the bass"
 
-}
-*/
 void test(){
 	string input = "Hello World!";
 	string expected = "_____ _____!";
@@ -46,18 +41,42 @@ void test(){
 
 int main(){
 	//test();
-	string phrase = "Hello World!";
+	string again = "yes";
+	while (toupper(again.at(0)) == 'Y') {
+		play();
+		cout << "Do you want to play again? ";
+		getline(cin, again);
+	}
+	return 0;
+}
+
+void play(){
+	string phrase = pickphrase();
 	string blanks = makeblanks(phrase);
+	cout << blanks << endl;
 	int wrong = 0;
 	while (phrase != blanks && wrong < 6)
 	{
-		cout << "guess a letter\n";
+		cout << "guess a letter or the entire phrase\n";
 		string guess;
+		bool correct;
 		getline(cin,guess);
-		bool correct = guessletter(phrase, blanks, guess.at(0));
+		if (guess.length() == 1){
+			correct = guessletter(phrase, blanks, guess.at(0));
+		}
+		else if (guess.length() == phrase.length()){
+			correct = guessphrase(phrase, blanks, guess);
+			if (correct != true)
+				wrong = 5;
+		}
+		else{
+			cout << "Your response was the wrong length\n";
+			correct = true;
+		}
 		if (correct != true)
-		{wrong++; 
-		cout << "You have " << 6 - wrong << " guesses left.\n";
+		{
+			wrong++; 
+			cout << "You have " << 6 - wrong << " guesses left.\n";
 		}
 		/*if (wrong = 1);
 		cout << "   _________\n";
@@ -85,8 +104,16 @@ int main(){
 	{
 		cout << "You Lose.\n";
 	}
-	system("pause");
-	return 0;
+}
+
+string pickphrase(){
+	string phrases[5];
+	phrases[0] = "Hello World";
+	phrases[1] = "Baby your a firework";
+	phrases[2] = "Take on me";
+	phrases[3] = "Never gonna give you up";
+	phrases[4] = "Drop the bass";
+	return phrases[2];
 }
 
 //take an answer and replace all letters with underscores, but leave everything else the same
@@ -113,12 +140,19 @@ bool guessletter(string phrase, string& blanks, char guess){
 		cout << "invalid answer\n";
 	return correct;
 }
-bool guessphrase(string phrase, string& blanks, char guess){
-	for (unsigned int i = phrase.length); {
-		if (phrase == toupper(guess){
-			blanks= phrase
+bool guessphrase(string phrase, string& blanks, string guess){
+	bool correct = true;
+	for (unsigned int i = 0; i < phrase.length(); i++){
+		if (toupper(phrase.at(i)) != toupper(guess.at(i))){
+			correct = false;
+			break;
 		}
 	}
+	if (correct == true)
+		blanks = phrase;
+	else
+		cout << "invalid answer\n";
+	return correct;
 }
 /*void image1(){
 
