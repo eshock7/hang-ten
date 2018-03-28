@@ -107,13 +107,20 @@ void play(){
 }
 
 string pickphrase(){
-	string phrases[5];
+	string phrases[12];
 	phrases[0] = "Hello World";
-	phrases[1] = "Baby your a firework";
+	phrases[1] = "Baby youre a firework";
 	phrases[2] = "Take on me";
 	phrases[3] = "Never gonna give you up";
 	phrases[4] = "Drop the bass";
-	return phrases[2];
+	phrases[5] = "Just do it";
+	phrases[6] = "A dream is a wish your heart makes";
+	phrases[7] = "how much wood could a wood chuck chuck";
+	phrases[8] = "Do you like pina coladas";
+	phrases[9] = "Hey now youre an all star";
+	phrases[10] = "Life is like a box of chocolates";
+	phrases[11] = "To infinity and beyond";
+	return phrases[11];
 }
 
 //take an answer and replace all letters with underscores, but leave everything else the same
