@@ -59,7 +59,7 @@ int main(){
 		{wrong++; 
 		cout << "You have " << 6 - wrong << " guesses left.\n";
 		}
-		if (wrong = 1);
+		/*if (wrong = 1);
 		cout << "   _________\n";
 		cout << "   |       |\n";
 		cout << "   |        \n";
@@ -67,8 +67,9 @@ int main(){
 		cout << "   |        \n";
 		cout << "   |        \n";
 		cout << "___|________\n";
+		*/
 		cout << blanks << endl;
-		if (wrong=2)
+		/*if (wrong=2)
 		cout << "   _________\n";
 		cout << "   |       |\n";
 		cout << "   |      ( ) \n";
@@ -76,7 +77,7 @@ int main(){
 		cout << "   |        \n";
 		cout << "   |        \n";
 		cout << "___|________\n";
-
+		*/
 	}
 	if (phrase == blanks)
 		cout << "You Win!!!\n";
@@ -112,7 +113,13 @@ bool guessletter(string phrase, string& blanks, char guess){
 		cout << "invalid answer\n";
 	return correct;
 }
-
+bool guessphrase(string phrase, string& blanks, char guess){
+	for (unsigned int i = phrase.length); {
+		if (phrase == toupper(guess){
+			blanks= phrase
+		}
+	}
+}
 /*void image1(){
 
 	cout << "  _________";
